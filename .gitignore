@@ -1,0 +1,21 @@
+# Recursively ignore all files matching ".txt" (excludes the AOC input files)
+**/*.txt
+
+# dart files
+.dart_tool/
+.packages
+build/
+pubspec.lock
+doc/api/
+
+# vscode files
+.vscode/**/*
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac
+.DS_Store
