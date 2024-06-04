@@ -1,11 +1,14 @@
+// downloads the input files of AdventOfCode using your personal session id (input files are different for different persons)
+// usage: dart bin/get_inputs.dart 2023 xxxxxx
+// parameters:
+// - year: Currently available years: 2015..2023
+// - SessionID: log in to the advent of code site, go in developper tools->Application tab->Cookies and copy the cookie value
 import 'dart:io';
 import 'dart:convert';
 
 const int minYear = 2015;
 const int maxYear = 2023;
 
-// downloads the input files of AdventOfCode using your personal session id
-// available years: 2015..2023
 void main(List<String> arguments) async {
 // gets the year from arguments, or input
   int? year;

@@ -1,3 +1,6 @@
+// Solves all days/parts of a specific year
+// usage: dart bin/year.dart 2023
+// Note: make sure you have downloaded the input files using get_inputs.dart
 import 'dart:io';
 
 const int minYear = 2015;
