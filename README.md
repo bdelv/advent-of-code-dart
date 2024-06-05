@@ -20,6 +20,10 @@ Different ways to use Dart:
 ### with Dart SDK (local)
 
 - Install Dart : https://dart.dev/get-dart
+- Check Dart is accessible in the shell and downloads dependencies:
+```
+dart pub get
+```
 
 ### With Nix (local)
 
@@ -27,6 +31,7 @@ Different ways to use Dart:
 - Check that `nix-shell` is accessible from the command line
 ```
 nix-shell
+dart pub get
 ```
 If launched from the root of this repository, it should download the necessary packages and enter a kind of `virtual env` that contains the needed dependencies to run the solvers (in our case, dart).
 
@@ -37,8 +42,8 @@ exit
 
 ### With Google Project Idx (remote, web based)
 
-- 
-- Check that `dart` is accessible from the command line
+- [Open in Project Idx](https://idx.google.com/import?url=https://github.com/bdelv/advent-of-code-dart.git)
+- Check that `dart` is accessible from the command line (CTRL+` to open the terminal)
 ```
 dart --version
 ```
@@ -58,7 +63,7 @@ Using Google Chrome (tested with Google Auth):
 - On the main window you will now see the `session`
 - Copy the cookie value (something like 32 hexadecimal characters)
 
-If you want, validates the session you got (replace xxxx by the copied session id):
+You can verify the value you copied (replace xxxx by the copied session id) with a curl:
 ```
 curl 'https://adventofcode.com/2023/day/1/input' -X GET -H 'Cookie: session=xxxx'
 ```
