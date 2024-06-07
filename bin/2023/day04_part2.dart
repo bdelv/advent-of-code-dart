@@ -21,14 +21,18 @@ int solution(List<String> cards) {
     String myStr = match.namedGroup('mine')!;
     // Extract the values in lists
     List<int> winList = [];
-    for (final m in RegExp(r'\d+').allMatches(winStr))
+    for (final m in RegExp(r'\d+').allMatches(winStr)) {
       winList.add(int.parse(m.group(0)!));
+    }
     List<int> myList = [];
-    for (final m in RegExp(r'\d+').allMatches(myStr))
+    for (final m in RegExp(r'\d+').allMatches(myStr)) {
       myList.add(int.parse(m.group(0)!));
+    }
     // add won copies
     int nbMatches = 0;
-    for (int winCard in winList) if (myList.contains(winCard)) nbMatches++;
+    for (int winCard in winList) {
+      if (myList.contains(winCard)) nbMatches++;
+    }
     for (int i = 0; i < nbMatches; i++) {
       if (id + i >= cards.length) break;
       nbCopies[id + i] += nbCopies[id - 1];
@@ -36,7 +40,9 @@ int solution(List<String> cards) {
   }
   int result = 0;
   if (debugMode) print(nbCopies);
-  for (int value in nbCopies) result += value;
+  for (int value in nbCopies) {
+    result += value;
+  }
   return result;
 }
 

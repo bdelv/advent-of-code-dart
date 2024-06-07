@@ -17,14 +17,16 @@ int solution(List<String> doc) {
       String around = "";
       int o1 = m.start - 1;
       int o2 = m.end + 1;
-      if (m.start > 0)
+      if (m.start > 0) {
         around += doc[y].substring(m.start - 1, m.start);
-      else
+      } else {
         o1 = 0;
-      if (m.end < doc[y].length)
+      }
+      if (m.end < doc[y].length) {
         around += doc[y].substring(m.end, m.end + 1);
-      else
+      } else {
         o2 = doc[y].length;
+      }
       if (y > 0) around += doc[y - 1].substring(o1, o2);
       if (y < doc.length - 1) around += doc[y + 1].substring(o1, o2);
       if (RegExp(r'^[.\d]+$').firstMatch(around) == null) {

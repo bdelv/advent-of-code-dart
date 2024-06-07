@@ -54,8 +54,9 @@ int solution(List<String> lines) {
   int move(int cost, int x, int y, int dx, int dy, int dist) {
     x += dx;
     y += dy;
-    if ((x < 0) || (y < 0) || (x >= grid[0].length) || (y >= grid.length))
+    if ((x < 0) || (y < 0) || (x >= grid[0].length) || (y >= grid.length)) {
       return -1;
+    }
     int currentCost = cost + grid[y][x];
     if ((x == grid[0].length - 1) && (y == grid.length - 1)) {
       return (currentCost); // destination found
@@ -68,10 +69,11 @@ int solution(List<String> lines) {
       // print('stateByCost: $statesByCost');
     }
     if (!costByState.containsKey(state)) {
-      if (statesByCost.containsKey(currentCost))
+      if (statesByCost.containsKey(currentCost)) {
         statesByCost[currentCost]!.add(state);
-      else
+      } else {
         statesByCost[currentCost] = [state];
+      }
       costByState[state] = currentCost;
     }
     return 0; // not a final move

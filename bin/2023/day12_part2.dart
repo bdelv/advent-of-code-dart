@@ -21,15 +21,18 @@ int nbValid(int idx, int idxList) {
   int tmpResult = 0;
   switch (str[idx]) {
     case '.':
-      while ((idx < str.length) && (str[idx] == '.')) idx++;
+      while ((idx < str.length) && (str[idx] == '.')) {
+        idx++;
+      }
       return memoizeNbValid(idx, idxList);
     case '?':
       tmpResult = memoizeNbValid(idx + 1, idxList);
       continue caseSharp;
     caseSharp:
     case '#':
-      for (int i = 1; i < springCount[idxList]; i++)
+      for (int i = 1; i < springCount[idxList]; i++) {
         if (str[idx + i] == '.') return tmpResult;
+      }
       idx += springCount[idxList];
       if ((idx < str.length) && (str[idx] == '#')) return tmpResult;
       return tmpResult + memoizeNbValid(idx + 1, idxList + 1);
@@ -66,12 +69,13 @@ int solution(List<String> lines) {
     }
     // calculates the required space remaining
     reqSpace = [0];
-    for (int y = springCount.length - 1; y >= 0; y--)
+    for (int y = springCount.length - 1; y >= 0; y--) {
       reqSpace.insert(
           0,
           (y == springCount.length - 1
               ? springCount[y]
               : reqSpace[0] + springCount[y] + 1));
+    }
     if (debugMode) print('$str $springCount $reqSpace');
     // checks the valid configurations
 

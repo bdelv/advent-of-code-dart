@@ -24,14 +24,16 @@ int solution(List<String> lines, int emptySize) {
   // detect the empty columns
   String columns = ''.padRight(lines[0].length, '0');
   for (int x = 0; x < lines[0].length; x++) {
-    for (int y = 0; y < lines.length; y++)
+    for (int y = 0; y < lines.length; y++) {
       if (lines[y][x] == '#') columns = columns.replaceRange(x, x + 1, '#');
+    }
   }
   // create the space with marked empty lines and columns (0 = empty)
   for (int y = 0; y < lines.length; y++) {
     String line = lines[y];
-    for (int x = 0; x < lines[0].length; x++)
+    for (int x = 0; x < lines[0].length; x++) {
       if (columns[x] == '0') line = line.replaceRange(x, x + 1, '0');
+    }
     if (!line.contains("#")) line = ''.padRight(line.length, '0');
     space.add(line);
   }

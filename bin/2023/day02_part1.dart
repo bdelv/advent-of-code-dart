@@ -31,8 +31,9 @@ int solution(List<String> listStr, int nbRed, int nbGreen, int nbBlue) {
       shownGreen =
           max(int.parse(match?.namedGroup('green') ?? "0"), shownGreen);
     }
-    if (debugMode)
+    if (debugMode) {
       print('ID:$id red:$shownRed green:$shownGreen blue:$shownBlue');
+    }
     if ((shownBlue <= nbBlue) &&
         (shownRed <= nbRed) &&
         (shownGreen <= nbGreen)) {

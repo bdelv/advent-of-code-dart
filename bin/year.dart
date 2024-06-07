@@ -31,8 +31,9 @@ void main(List<String> arguments) async {
         if (results.exitCode != 0) {
           print(results.stderr);
           exit(-1);
-        } else
+        } else {
           print(results.stdout);
+        }
       }
     }
   }

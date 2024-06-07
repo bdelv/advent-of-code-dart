@@ -52,8 +52,9 @@ int solution(List<String> lines) {
         lagoon[y][x] = 'D';
         for (int i = 0; i < nb; i++) {
           y++;
-          if (y >= lagoon.length)
+          if (y >= lagoon.length) {
             lagoon.add(List<String>.generate(lagoon[0].length, (int i) => ' '));
+          }
           lagoon[y][x] = 'D';
         }
         break;
@@ -62,8 +63,9 @@ int solution(List<String> lines) {
           x--;
           if (x < 0) {
             x = 0;
-            for (int tmpy = 0; tmpy < lagoon.length; tmpy++)
+            for (int tmpy = 0; tmpy < lagoon.length; tmpy++) {
               lagoon[tmpy].insert(0, ' ');
+            }
           }
           lagoon[y][x] = 'L';
         }
@@ -72,8 +74,9 @@ int solution(List<String> lines) {
         for (int i = 0; i < nb; i++) {
           x++;
           if (x >= lagoon[y].length) {
-            for (int tmpy = 0; tmpy < lagoon.length; tmpy++)
+            for (int tmpy = 0; tmpy < lagoon.length; tmpy++) {
               lagoon[tmpy].add(' ');
+            }
           }
           lagoon[y][x] = 'R';
         }

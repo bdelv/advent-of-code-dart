@@ -16,17 +16,20 @@ int solution(List<String> lines) {
 
   // extract the data
   int y = 0;
-  for (final m in RegExp(r'\d+').allMatches(lines[y++]))
+  for (final m in RegExp(r'\d+').allMatches(lines[y++])) {
     times.add(int.parse(m.group(0)!));
+  }
   if (debugMode) print('times:$times');
-  for (final m in RegExp(r'\d+').allMatches(lines[y++]))
+  for (final m in RegExp(r'\d+').allMatches(lines[y++])) {
     distances.add(int.parse(m.group(0)!));
+  }
   if (debugMode) print('distances:$distances');
   // Count the solutions
   for (int race = 0; race < times.length; race++) {
     int nbSolutions = 0;
-    for (int i = 1; i < times[race]; i++)
+    for (int i = 1; i < times[race]; i++) {
       if ((times[race] - i) * i > distances[race]) nbSolutions++;
+    }
     if (nbSolutions > 0) {
       if (debugMode) print('race:$race sol:$nbSolutions');
       result = (result == 0 ? nbSolutions : result * nbSolutions);

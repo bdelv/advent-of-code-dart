@@ -38,20 +38,27 @@ class CamelHand implements Comparable<CamelHand> {
     char.sort((a, b) => cardsOrder.indexOf(b) - cardsOrder.indexOf(a));
     String cardsSorted = char.join();
 
-    if (RegExp(r'(\w)\1{4}').hasMatch(cardsSorted))
+    if (RegExp(r'(\w)\1{4}').hasMatch(cardsSorted)) {
       return (cards, HandTypes.five);
-    if (RegExp(r'(\w)\1{3}').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'(\w)\1{3}').hasMatch(cardsSorted)) {
       return (cards, HandTypes.four);
-    if (RegExp(r'(\w)\1(\w)\2\2').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'(\w)\1(\w)\2\2').hasMatch(cardsSorted)) {
       return (cards, HandTypes.fullHouse);
-    if (RegExp(r'(\w)\1\1(\w)\2').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'(\w)\1\1(\w)\2').hasMatch(cardsSorted)) {
       return (cards, HandTypes.fullHouse);
-    if (RegExp(r'\w*(\w)\1\1\w*').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'\w*(\w)\1\1\w*').hasMatch(cardsSorted)) {
       return (cards, HandTypes.three);
-    if (RegExp(r'\w?(\w)\1\w?(\w)\2\w?').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'\w?(\w)\1\w?(\w)\2\w?').hasMatch(cardsSorted)) {
       return (cards, HandTypes.twoPair);
-    if (RegExp(r'\w*(\w)\1\w*').hasMatch(cardsSorted))
+    }
+    if (RegExp(r'\w*(\w)\1\w*').hasMatch(cardsSorted)) {
       return (cards, HandTypes.onePair);
+    }
     return (cards, HandTypes.highCard);
   }
 
@@ -95,8 +102,9 @@ int solution(List<String> lines) {
   }
   hands.sort();
   if (debugMode) print(hands);
-  for (int rank = 1; rank <= hands.length; rank++)
+  for (int rank = 1; rank <= hands.length; rank++) {
     result += rank * hands[rank - 1].bet;
+  }
   return result;
 }
 

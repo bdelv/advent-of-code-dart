@@ -57,10 +57,11 @@ int solution(List<String> lines) {
   area = (area ~/ 2).abs();
   // Perimeter: sum of edge lengths
   int perimeter = 0;
-  for (int i = 1; i < vects.length; i++)
+  for (int i = 1; i < vects.length; i++) {
     perimeter += sqrt(pow(vects[i].x - vects[i - 1].x, 2) +
             pow(vects[i].y - vects[i - 1].y, 2))
         .toInt();
+  }
   // pick's theorem (how many integer points within and on the shape's boundary)
   int result = area + perimeter ~/ 2 + 1;
   return result;

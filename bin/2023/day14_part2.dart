@@ -71,7 +71,9 @@ int solution(List<String> lines, int cycles) {
     }
     if (debugMode) {
       print("--");
-      for (int y = 0; y < lines.length; y++) print(lines[y]);
+      for (int y = 0; y < lines.length; y++) {
+        print(lines[y]);
+      }
     }
   }
 
@@ -79,8 +81,9 @@ int solution(List<String> lines, int cycles) {
   int calcNorthLoad() {
     int load = 0;
     for (int x = 0; x < lines[0].length; x++)
-      for (int y = 0; y < lines.length; y++)
+      for (int y = 0; y < lines.length; y++) {
         if (lines[y][x] == 'O') load += lines.length - y;
+      }
     return load;
   }
 
@@ -92,10 +95,11 @@ int solution(List<String> lines, int cycles) {
     tilt('S');
     tilt('E');
     int? prev = cache[lines.join()];
-    if (prev == null)
+    if (prev == null) {
       cache[lines.join()] = cycle;
-    else
+    } else {
       cycle += ((cycles - cycle) ~/ (cycle - prev)) * (cycle - prev);
+    }
     cycle++;
   }
   return calcNorthLoad();

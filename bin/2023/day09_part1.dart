@@ -14,8 +14,9 @@ int solution(List<String> lines) {
   for (final String line in lines) {
     List<List<int>> values = [];
     values.add([]);
-    for (final m in RegExp(r'-?\d+').allMatches(line))
+    for (final m in RegExp(r'-?\d+').allMatches(line)) {
       values[0].add(int.parse(m.group(0)!));
+    }
     // fill the extra lines
     bool allZero = false;
     int y = 0;

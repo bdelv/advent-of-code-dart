@@ -34,10 +34,11 @@ int solution(List<String> lines) {
   while (pos != 'ZZZ') {
     String dir = path[count % path.length];
     if (debugMode) print('$pos $dir');
-    if (dir == 'R')
+    if (dir == 'R') {
       pos = nodes[pos]!.right;
-    else
+    } else {
       pos = nodes[pos]!.left;
+    }
     count++;
   }
   return count;

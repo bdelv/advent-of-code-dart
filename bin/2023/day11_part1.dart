@@ -24,15 +24,17 @@ int solution(List<String> lines) {
   // detect the empty columns
   String columns = ''.padRight(lines[0].length, '.');
   for (int x = 0; x < lines[0].length; x++) {
-    for (int y = 0; y < lines.length; y++)
+    for (int y = 0; y < lines.length; y++) {
       if (lines[y][x] == '#') columns = columns.replaceRange(x, x + 1, '#');
+    }
   }
   // create the expanded space
   for (int y = 0; y < lines.length; y++) {
     String line = lines[y];
     for (int x = line.length - 1; x >= 0; x--) {
-      if (columns[x] == '.')
+      if (columns[x] == '.') {
         line = '${line.substring(0, x)}.${line.substring(x)}';
+      }
     }
     space.add(line);
     if (!line.contains("#")) space.add(line);

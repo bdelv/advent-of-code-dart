@@ -10,7 +10,9 @@ final String dayStr = day.toString().padLeft(2, "0");
 bool debugMode = false;
 
 int searchMirror(List<String> lines) {
-  if (debugMode) for (int y = 0; y < lines.length; y++) print(lines[y]);
+  if (debugMode) for (int y = 0; y < lines.length; y++) {
+    print(lines[y]);
+  }
   // search vertical mirror
   bool different = false;
   int xMirror = 0;

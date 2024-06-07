@@ -128,12 +128,15 @@ int solution(List<String> lines) {
   for (String key in mapBlocks.keys) {
     lines[startY] = lines[startY].replaceRange(startX, startX + 1, key);
     cleanLines = [];
-    for (int y = 0; y < lines.length; y++)
+    for (int y = 0; y < lines.length; y++) {
       cleanLines.add(''.padRight(lines[y].length, '.'));
+    }
     int tmpResult = sizeMaze(startX, startY);
     if (tmpResult > 0) {
       if (debugMode)
-        for (int y = 0; y < cleanLines.length; y++) print(cleanLines[y]);
+        for (int y = 0; y < cleanLines.length; y++) {
+          print(cleanLines[y]);
+        }
       for (int y = 0; y < cleanLines.length; y++) {
         bool inside = false;
         String prevChar = "";

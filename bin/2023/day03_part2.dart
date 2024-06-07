@@ -27,8 +27,9 @@ int solution(List<String> doc) {
   for (int y = 0; y < doc.length; y++) {
     List<Part> partsLine = [];
     partsList.add(partsLine);
-    for (final m in RegExp(r'\d+').allMatches(doc[y]))
+    for (final m in RegExp(r'\d+').allMatches(doc[y])) {
       partsList[y].add(Part(int.parse(m.group(0)!), m.start, m.end));
+    }
   }
   if (debugMode) print(partsList);
   int result = 0;

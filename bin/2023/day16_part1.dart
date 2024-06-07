@@ -15,15 +15,18 @@ int solution(List<String> lines) {
   List<List<bool>> energized = [];
   for (int y = 0; y < lines.length; y++) {
     energized.add([]);
-    for (int x = 0; x < lines[y].length; x++) energized[y].add(false);
+    for (int x = 0; x < lines[y].length; x++) {
+      energized[y].add(false);
+    }
   }
 
   void beam(int x, int y, int dirx, int diry) {
     while (true) {
       x += dirx;
       y += diry;
-      if ((y < 0) || (y >= lines.length) || (x < 0) || (x >= lines[y].length))
+      if ((y < 0) || (y >= lines.length) || (x < 0) || (x >= lines[y].length)) {
         break;
+      }
       int hash = x * 100000 + y * 100 + dirx * 10 + diry;
       if (cache.containsKey(hash)) break;
       cache[hash] = 0;
@@ -55,7 +58,9 @@ int solution(List<String> lines) {
   beam(-1, 0, 1, 0);
   int result = 0;
   for (int y = 0; y < lines.length; y++)
-    for (int x = 0; x < lines[y].length; x++) if (energized[y][x]) result++;
+    for (int x = 0; x < lines[y].length; x++) {
+      if (energized[y][x]) result++;
+    }
   return result;
 }
 

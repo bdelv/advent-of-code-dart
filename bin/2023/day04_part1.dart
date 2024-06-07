@@ -20,18 +20,21 @@ int solution(List<String> cards) {
     String myStr = match.namedGroup('mine')!;
     // Extract the values in lists
     List<int> winList = [];
-    for (final m in RegExp(r'\d+').allMatches(winStr))
+    for (final m in RegExp(r'\d+').allMatches(winStr)) {
       winList.add(int.parse(m.group(0)!));
+    }
     List<int> myList = [];
-    for (final m in RegExp(r'\d+').allMatches(myStr))
+    for (final m in RegExp(r'\d+').allMatches(myStr)) {
       myList.add(int.parse(m.group(0)!));
+    }
     // compare lists
     int tmpResult = 0;
-    for (int winCard in winList)
+    for (int winCard in winList) {
       if (myList.contains(winCard)) {
         tmpResult = (tmpResult == 0 ? 1 : tmpResult * 2);
         if (debugMode) print('$winCard found in $myList');
       }
+    }
     result += tmpResult;
   }
   return result;

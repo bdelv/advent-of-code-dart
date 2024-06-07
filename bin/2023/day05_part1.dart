@@ -40,9 +40,9 @@ int findClosestLocation(List<int> seeds) {
     for (String mapName in mapNames) {
       seed = convert(seed, mapName);
     }
-    if (closestLocation == null)
+    if (closestLocation == null) {
       closestLocation = seed;
-    else if (seed < closestLocation) closestLocation = seed;
+    } else if (seed < closestLocation) closestLocation = seed;
   }
   return closestLocation!;
 }
@@ -51,8 +51,9 @@ int solution(List<String> lines) {
   // extract the data
   int y = 0;
   // extract seeds
-  for (final m in RegExp(r'\d+').allMatches(lines[y++]))
+  for (final m in RegExp(r'\d+').allMatches(lines[y++])) {
     seeds.add(int.parse(m.group(0)!));
+  }
   if (debugMode) print('seeds: $seeds');
   y++; // blank line
   // extrat maps: destination range start, source range start, range length
@@ -61,15 +62,18 @@ int solution(List<String> lines) {
     y++; // title line
     while ((y < lines.length) && (lines[y] != "")) {
       List<int> tmpList = [];
-      for (final m in RegExp(r'\d+').allMatches(lines[y]))
+      for (final m in RegExp(r'\d+').allMatches(lines[y])) {
         tmpList.add(int.parse(m.group(0)!));
+      }
       maps[mapName]!.add(tmpList);
       y++; // next line
     }
     y++; // blank line
   }
   if (debugMode)
-    for (String mapName in mapNames) print('$mapName: ${maps[mapName]}');
+    for (String mapName in mapNames) {
+      print('$mapName: ${maps[mapName]}');
+    }
   return findClosestLocation(seeds);
 }
 

@@ -26,7 +26,9 @@ int lcm(int a, int b) {
 int lcmMany(List<int> integers) {
   if (integers.isEmpty) return 1;
   var tmpLcm = integers[0].abs();
-  for (var i = 1; i < integers.length; i++) tmpLcm = lcm(tmpLcm, integers[i]);
+  for (var i = 1; i < integers.length; i++) {
+    tmpLcm = lcm(tmpLcm, integers[i]);
+  }
   return tmpLcm;
 }
 
@@ -57,24 +59,26 @@ int solution(List<String> lines) {
   while (!allEndWithZ) {
     allEndWithZ = true;
     for (int i = 0; i < currentNodes.length; i++) {
-      if (path[count % path.length] == 'R')
+      if (path[count % path.length] == 'R') {
         currentNodes[i] = nodes[currentNodes[i]]!.right;
-      else
+      } else {
         currentNodes[i] = nodes[currentNodes[i]]!.left;
-      if (currentNodes[i][currentNodes[i].length - 1] != 'Z')
+      }
+      if (currentNodes[i][currentNodes[i].length - 1] != 'Z') {
         allEndWithZ = false;
-      else {
+      } else {
         if (debugMode) print('i:$i count:${count + 1}');
         loops[i].add(count);
       }
       // Checks if all nodes are looping
       bool allLoopsFound = true;
-      for (int i2 = 0; i2 < loops.length; i2++)
+      for (int i2 = 0; i2 < loops.length; i2++) {
         if (!((loops[i2].length > 2) &&
             (loops[i2][loops[i2].length - 1] -
                     loops[i2][loops[i2].length - 2] ==
                 loops[i2][loops[i2].length - 2] -
                     loops[i2][loops[i2].length - 3]))) allLoopsFound = false;
+      }
       if (allLoopsFound) {
         if (debugMode) {
           print('All nodes have loops!');

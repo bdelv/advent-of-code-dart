@@ -42,10 +42,11 @@ int solution(List<String> lines) {
       String? tmpOpe = m.namedGroup('ope');
       String? tmpVal = m.namedGroup('value');
       String? tmpDest = m.namedGroup('dest');
-      if (tmpOpe! == '')
+      if (tmpOpe! == '') {
         rules.add(Rule.destination(tmpPart!));
-      else
+      } else {
         rules.add(Rule(tmpPart!, tmpOpe, int.parse(tmpVal!), tmpDest!));
+      }
     }
     if (debugMode) print(rules);
     workflows[workflow] = rules;
@@ -58,8 +59,9 @@ int solution(List<String> lines) {
         RegExp(r'^{x=(?<x>\d+),m=(?<m>\d+),a=(?<a>\d+),s=(?<s>\d+)}$')
             .firstMatch(lines[i]);
     Map<String, int> values = {};
-    for (String cat in catName)
+    for (String cat in catName) {
       values[cat] = int.parse(match!.namedGroup(cat)!);
+    }
     String currWorkflow = 'in';
     while ((currWorkflow != 'A') && (currWorkflow != 'R')) {
       for (Rule rule in workflows[currWorkflow]!) {
@@ -71,7 +73,9 @@ int solution(List<String> lines) {
         }
       }
     }
-    if (currWorkflow == 'A') for (String cat in catName) result += values[cat]!;
+    if (currWorkflow == 'A') for (String cat in catName) {
+      result += values[cat]!;
+    }
   }
   if (debugMode) print(result);
   return result;

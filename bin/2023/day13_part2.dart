@@ -24,8 +24,9 @@ int searchMirror(List<String> lines) {
       y1--;
       y2++;
       // Checks all the lines if it is a mirror
-      for (int tmpx = 0; tmpx < lines[0].length; tmpx++)
+      for (int tmpx = 0; tmpx < lines[0].length; tmpx++) {
         if (lines[y1][tmpx] != lines[y2][tmpx]) nbDiff++;
+      }
     }
     if (nbDiff == maxDiff) {
       yMirror = y + 1;
@@ -35,7 +36,9 @@ int searchMirror(List<String> lines) {
   if (nbDiff == maxDiff) {
     if (debugMode) {
       print("y {$yMirror}");
-      for (int y = 0; y < lines.length; y++) print(lines[y]);
+      for (int y = 0; y < lines.length; y++) {
+        print(lines[y]);
+      }
     }
     return yMirror * 100;
   }
@@ -50,8 +53,9 @@ int searchMirror(List<String> lines) {
       x1--;
       x2++;
       // Checks all the lines if it is a mirror
-      for (int tmpy = 0; tmpy < lines.length; tmpy++)
+      for (int tmpy = 0; tmpy < lines.length; tmpy++) {
         if (lines[tmpy][x1] != lines[tmpy][x2]) nbDiff++;
+      }
     }
     if (nbDiff == maxDiff) {
       xMirror = x + 1;
@@ -61,13 +65,17 @@ int searchMirror(List<String> lines) {
   if (nbDiff == maxDiff) {
     if (debugMode) {
       print("x {$xMirror}");
-      for (int y = 0; y < lines.length; y++) print(lines[y]);
+      for (int y = 0; y < lines.length; y++) {
+        print(lines[y]);
+      }
     }
     return xMirror;
   }
 
   print("not found");
-  for (int y = 0; y < lines.length; y++) print(lines[y]);
+  for (int y = 0; y < lines.length; y++) {
+    print(lines[y]);
+  }
   return 0;
 }
 

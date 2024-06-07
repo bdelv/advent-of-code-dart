@@ -30,23 +30,29 @@ const int maxRange = 4000;
 class PartRange {
   Map<String, List<int>> values = {};
   PartRange() {
-    for (String cat in catName) values[cat] = [minRange, maxRange];
+    for (String cat in catName) {
+      values[cat] = [minRange, maxRange];
+    }
   }
   PartRange.copy(PartRange src) {
-    for (String cat in catName)
+    for (String cat in catName) {
       values[cat] = [src.values[cat]![0], src.values[cat]![1]];
+    }
   }
   @override
   String toString() {
     String result = '';
-    for (String cat in catName)
+    for (String cat in catName) {
       result += '$cat=${values[cat]![0]}..${values[cat]![1]} ';
+    }
     return result;
   }
 
   int nbCombi() {
     int result = 1;
-    for (String cat in catName) result *= values[cat]![1] - values[cat]![0] + 1;
+    for (String cat in catName) {
+      result *= values[cat]![1] - values[cat]![0] + 1;
+    }
     return result;
   }
 }
@@ -56,8 +62,9 @@ int combinations(String workflow, PartRange part) {
   if (debugMode) print('$workflow $part');
   while ((workflow != 'A') && (workflow != 'R')) {
     // if one range is depleted, stop
-    for (String cat in catName)
+    for (String cat in catName) {
       if (part.values[cat]![0] >= part.values[cat]![1]) return result;
+    }
 
     for (Rule rule in workflows[workflow]!) {
       if (rule.operator == '') {
@@ -100,10 +107,11 @@ int solution(List<String> lines) {
       String? tmpOpe = m.namedGroup('ope');
       String? tmpVal = m.namedGroup('value');
       String? tmpDest = m.namedGroup('dest');
-      if (tmpOpe! == '')
+      if (tmpOpe! == '') {
         rules.add(Rule.destination(tmpPart!));
-      else
+      } else {
         rules.add(Rule(tmpPart!, tmpOpe, int.parse(tmpVal!), tmpDest!));
+      }
     }
     if (debugMode) print(rules);
     workflows[workflow] = rules;

@@ -14,15 +14,18 @@ const int nbBoxes = 256;
 
 int hash(String str) {
   int res = 0;
-  for (int x = 0; x < str.length; x++)
+  for (int x = 0; x < str.length; x++) {
     res = ((res + str.codeUnitAt(x)) * 17) % nbBoxes;
+  }
   return res;
 }
 
 int solution(List<String> lines) {
   // initialize the maps
   List<LinkedHashMap<String, int>> boxes = [];
-  for (int i = 0; i < nbBoxes; i++) boxes.add(LinkedHashMap<String, int>());
+  for (int i = 0; i < nbBoxes; i++) {
+    boxes.add(LinkedHashMap<String, int>());
+  }
   // fills the maps
   for (int y = 0; y < lines.length; y++) {
     for (final match in RegExp(r'(?<label>\w+)(?<operator>[-=])(?<value>\d*)')
@@ -35,8 +38,9 @@ int solution(List<String> lines) {
         boxes[box].remove(label);
       } else {
         int value = int.parse(match.namedGroup('value')!);
-        if (debugMode)
+        if (debugMode) {
           print('label:$label box:$box operator:$operator value:$value');
+        }
         boxes[box][label] = value;
       }
       // if (debugMode) print(boxes);

@@ -21,16 +21,21 @@ class CamelHand implements Comparable<CamelHand> {
   HandTypes detectType(String cards2Analyze) {
     if (RegExp(r'(\w)\1{4}').hasMatch(cards2Analyze)) return HandTypes.five;
     if (RegExp(r'(\w)\1{3}').hasMatch(cards2Analyze)) return HandTypes.four;
-    if (RegExp(r'(\w)\1(\w)\2\2').hasMatch(cards2Analyze))
+    if (RegExp(r'(\w)\1(\w)\2\2').hasMatch(cards2Analyze)) {
       return HandTypes.fullHouse;
-    if (RegExp(r'(\w)\1\1(\w)\2').hasMatch(cards2Analyze))
+    }
+    if (RegExp(r'(\w)\1\1(\w)\2').hasMatch(cards2Analyze)) {
       return HandTypes.fullHouse;
-    if (RegExp(r'\w*(\w)\1\1\w*').hasMatch(cards2Analyze))
+    }
+    if (RegExp(r'\w*(\w)\1\1\w*').hasMatch(cards2Analyze)) {
       return HandTypes.three;
-    if (RegExp(r'\w?(\w)\1\w?(\w)\2\w?').hasMatch(cards2Analyze))
+    }
+    if (RegExp(r'\w?(\w)\1\w?(\w)\2\w?').hasMatch(cards2Analyze)) {
       return HandTypes.twoPair;
-    if (RegExp(r'\w*(\w)\1\w*').hasMatch(cards2Analyze))
+    }
+    if (RegExp(r'\w*(\w)\1\w*').hasMatch(cards2Analyze)) {
       return HandTypes.onePair;
+    }
     return HandTypes.highCard;
   }
 
@@ -74,8 +79,9 @@ int solution(List<String> lines) {
   }
   hands.sort();
   if (debugMode) print(hands);
-  for (int rank = 1; rank <= hands.length; rank++)
+  for (int rank = 1; rank <= hands.length; rank++) {
     result += rank * hands[rank - 1].bet;
+  }
   return result;
 }
 

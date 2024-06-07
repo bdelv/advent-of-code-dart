@@ -13,7 +13,9 @@ int solution(List<String> lines) {
   int result = 0;
   if (debugMode) {
     print("-------");
-    for (int y = 0; y < lines.length; y++) print(lines[y]);
+    for (int y = 0; y < lines.length; y++) {
+      print(lines[y]);
+    }
     print("-------");
   }
   // for each column
@@ -35,7 +37,9 @@ int solution(List<String> lines) {
       y++;
     }
   }
-  if (debugMode) for (int y = 0; y < lines.length; y++) print(lines[y]);
+  if (debugMode) for (int y = 0; y < lines.length; y++) {
+    print(lines[y]);
+  }
   return result;
 }
 
