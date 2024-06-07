@@ -48,11 +48,12 @@ int solution(List<String> lines) {
   }
   if (debugMode) print('galaxies: $galaxies');
   // calculate the shortest path
-  for (int gal1 = 0; gal1 < galaxies.length - 1; gal1++)
+  for (int gal1 = 0; gal1 < galaxies.length - 1; gal1++) {
     for (int gal2 = gal1 + 1; gal2 < galaxies.length; gal2++) {
       result += (galaxies[gal1].x - galaxies[gal2].x).abs() +
           (galaxies[gal1].y - galaxies[gal2].y).abs();
     }
+  }
   return result;
 }
 

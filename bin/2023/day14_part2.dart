@@ -22,7 +22,9 @@ int solution(List<String> lines, int cycles) {
                 lines[y] = lines[y].replaceRange(x, x + 1, '.');
                 lines[lastRock] = lines[lastRock].replaceRange(x, x + 1, 'O');
               }
-            } else if (lines[y][x] == '#') lastRock = y;
+            } else if (lines[y][x] == '#') {
+              lastRock = y;
+            }
           }
         }
         break;
@@ -36,7 +38,9 @@ int solution(List<String> lines, int cycles) {
                 lines[y] = lines[y].replaceRange(x, x + 1, '.');
                 lines[lastRock] = lines[lastRock].replaceRange(x, x + 1, 'O');
               }
-            } else if (lines[y][x] == '#') lastRock = y;
+            } else if (lines[y][x] == '#') {
+              lastRock = y;
+            }
           }
         }
         break;
@@ -50,7 +54,9 @@ int solution(List<String> lines, int cycles) {
                 lines[y] = lines[y].replaceRange(x, x + 1, '.');
                 lines[y] = lines[y].replaceRange(lastRock, lastRock + 1, 'O');
               }
-            } else if (lines[y][x] == '#') lastRock = x;
+            } else if (lines[y][x] == '#') {
+              lastRock = x;
+            }
           }
         }
         break;
@@ -64,7 +70,9 @@ int solution(List<String> lines, int cycles) {
                 lines[y] = lines[y].replaceRange(x, x + 1, '.');
                 lines[y] = lines[y].replaceRange(lastRock, lastRock + 1, 'O');
               }
-            } else if (lines[y][x] == '#') lastRock = x;
+            } else if (lines[y][x] == '#') {
+              lastRock = x;
+            }
           }
         }
         break;
@@ -80,10 +88,11 @@ int solution(List<String> lines, int cycles) {
   // calculates the total load on the north support beams
   int calcNorthLoad() {
     int load = 0;
-    for (int x = 0; x < lines[0].length; x++)
+    for (int x = 0; x < lines[0].length; x++) {
       for (int y = 0; y < lines.length; y++) {
         if (lines[y][x] == 'O') load += lines.length - y;
       }
+    }
     return load;
   }
 

@@ -73,8 +73,10 @@ int solution(List<String> lines) {
         }
       }
     }
-    if (currWorkflow == 'A') for (String cat in catName) {
-      result += values[cat]!;
+    if (currWorkflow == 'A') {
+      for (String cat in catName) {
+        result += values[cat]!;
+      }
     }
   }
   if (debugMode) print(result);

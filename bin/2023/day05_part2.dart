@@ -94,10 +94,11 @@ int solution(List<String> lines) {
     }
     y++; // blank line
   }
-  if (debugMode)
+  if (debugMode) {
     for (String mapName in mapNames) {
       print('$mapName: ${maps[mapName]}');
     }
+  }
   return findClosestLocation(seeds);
 }
 

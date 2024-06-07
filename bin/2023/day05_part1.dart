@@ -42,7 +42,9 @@ int findClosestLocation(List<int> seeds) {
     }
     if (closestLocation == null) {
       closestLocation = seed;
-    } else if (seed < closestLocation) closestLocation = seed;
+    } else if (seed < closestLocation) {
+      closestLocation = seed;
+    }
   }
   return closestLocation!;
 }
@@ -70,10 +72,11 @@ int solution(List<String> lines) {
     }
     y++; // blank line
   }
-  if (debugMode)
+  if (debugMode) {
     for (String mapName in mapNames) {
       print('$mapName: ${maps[mapName]}');
     }
+  }
   return findClosestLocation(seeds);
 }
 

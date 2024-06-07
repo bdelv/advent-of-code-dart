@@ -57,10 +57,11 @@ int solution(List<String> lines) {
 
   beam(-1, 0, 1, 0);
   int result = 0;
-  for (int y = 0; y < lines.length; y++)
+  for (int y = 0; y < lines.length; y++) {
     for (int x = 0; x < lines[y].length; x++) {
       if (energized[y][x]) result++;
     }
+  }
   return result;
 }
 

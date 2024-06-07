@@ -105,8 +105,9 @@ int solution(List<String> lines) {
         comingFrom = Direction.right;
         x--;
         result++;
-      } else
+      } else {
         return -1;
+      }
     } while ((x != startX) || (y != startY));
     return result ~/ 2;
   }

@@ -106,8 +106,9 @@ int solution(List<String> lines) {
       } else if (lava) {
         result++;
         line += '*';
-      } else
+      } else {
         line += ' ';
+      }
     }
     if (debugMode) print(line);
   }

@@ -97,8 +97,9 @@ int solution(List<String> lines) {
           (x > 0) &&
           mapBlocks[lines[y][x - 1]]![1]![2]) {
         dir = Direction.left;
-      } else
+      } else {
         return -1;
+      }
       // direction found
       cleanLines[y] = cleanLines[y].replaceRange(x, x + 1, lines[y][x]);
       result++;
@@ -133,10 +134,11 @@ int solution(List<String> lines) {
     }
     int tmpResult = sizeMaze(startX, startY);
     if (tmpResult > 0) {
-      if (debugMode)
+      if (debugMode) {
         for (int y = 0; y < cleanLines.length; y++) {
           print(cleanLines[y]);
         }
+      }
       for (int y = 0; y < cleanLines.length; y++) {
         bool inside = false;
         String prevChar = "";

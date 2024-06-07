@@ -28,10 +28,11 @@ class Module {
       name = name.substring(1);
     } // else if (name == 'button')
     // type = TypeModule.button;
-    else if (name == 'broadcaster')
+    else if (name == 'broadcaster') {
       type = TypeModule.broadcast;
-    else
+    } else {
       type = TypeModule.untyped;
+    }
   }
   void pulse(bool state) {
     if (type != TypeModule.untyped) inputs.add(state);

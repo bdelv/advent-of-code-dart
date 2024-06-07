@@ -25,7 +25,10 @@ int solution(List<String> lines) {
       while (true) {
         x += dirx;
         y += diry;
-        if ((y < 0) || (y >= lines.length) || (x < 0) || (x >= lines[y].length)) {
+        if ((y < 0) ||
+            (y >= lines.length) ||
+            (x < 0) ||
+            (x >= lines[y].length)) {
           break;
         }
         int hash = x * 100000 + y * 100 + dirx * 10 + diry;
@@ -58,10 +61,11 @@ int solution(List<String> lines) {
 
     beam(x, y, dirx, diry);
     int result = 0;
-    for (int y = 0; y < lines.length; y++)
+    for (int y = 0; y < lines.length; y++) {
       for (int x = 0; x < lines[y].length; x++) {
         if (energized[y][x]) result++;
       }
+    }
     if (debugMode) print("$x,$y $dirx,$diry $result");
     return result;
   }

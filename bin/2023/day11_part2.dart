@@ -47,7 +47,7 @@ int solution(List<String> lines, int emptySize) {
   }
   if (debugMode) print('galaxies: $galaxies');
   // calculate the shortest path between each pairs
-  for (int gal1 = 0; gal1 < galaxies.length - 1; gal1++)
+  for (int gal1 = 0; gal1 < galaxies.length - 1; gal1++) {
     for (int gal2 = gal1 + 1; gal2 < galaxies.length; gal2++) {
       int distance = 0;
       int deltaY = (galaxies[gal2].y - galaxies[gal1].y).sign;
@@ -62,6 +62,7 @@ int solution(List<String> lines, int emptySize) {
       }
       result += distance;
     }
+  }
   return result;
 }
 
