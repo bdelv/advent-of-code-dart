@@ -71,7 +71,7 @@ class CamelHand implements Comparable<CamelHand> {
     type = tmpType;
   }
 
-  // override compareTo for list.sort(): first by type, them alphabetically
+  // override compareTo for list.sort(): first by type, then alphabetically
   @override
   int compareTo(CamelHand other) {
     if (type != other.type) return type.index.compareTo(other.type.index);
