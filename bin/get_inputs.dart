@@ -7,7 +7,7 @@ import 'dart:io';
 import 'dart:convert';
 
 const int minYear = 2015;
-const int maxYear = 2023;
+const int maxYear = 2024;
 
 void main(List<String> arguments) async {
 // gets the year from arguments, or input
